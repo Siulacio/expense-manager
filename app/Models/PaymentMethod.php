@@ -14,6 +14,8 @@ class PaymentMethod extends Model
     public const NAME = 'name';
     public const STATUS = 'status';
     public const USER_ID = 'user_id';
+    public const CREATED_AT = 'created_at';
+    public const UPDATED_AT = 'updated_at';
 
     protected $table = self::TABLE;
     protected $primaryKey = self::ID;
@@ -41,6 +43,16 @@ class PaymentMethod extends Model
     public function userId(): int
     {
         return $this->{self::USER_ID};
+    }
+
+    public function createdAt(): string
+    {
+        return $this->{self::CREATED_AT};
+    }
+
+    public function updatedAt(): string
+    {
+        return $this->{self::UPDATED_AT};
     }
 
     public function expenses(): HasMany

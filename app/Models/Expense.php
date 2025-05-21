@@ -18,6 +18,8 @@ class Expense extends Model
     public const COST_CENTER_ID = 'cost_center_id';
     public const PAYMENT_METHOD_ID = 'payment_method_id';
     public const USER_ID = 'user_id';
+    public const CREATED_AT = 'created_at';
+    public const UPDATED_AT = 'updated_at';
 
     protected $table = self::TABLE;
     protected $primaryKey = self::ID;
@@ -69,6 +71,16 @@ class Expense extends Model
     public function userId(): int
     {
         return $this->{self::USER_ID};
+    }
+
+    public function createdAt(): string
+    {
+        return $this->{self::CREATED_AT};
+    }
+
+    public function updatedAt(): string
+    {
+        return $this->{self::UPDATED_AT};
     }
 
     public function costCenter(): BelongsTo
