@@ -12,8 +12,8 @@ enum ExpenseStatus: string
     public static function toArray(): array
     {
         return [
-            self::PAID->value => self::PAID->value,
-            self::PENDING->value => self::PENDING->value,
+            self::PAID->value => trans('general.status.' . self::PAID->value),
+            self::PENDING->value => trans('general.status.' . self::PENDING->value),
         ];
     }
 

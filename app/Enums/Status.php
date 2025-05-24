@@ -12,8 +12,8 @@ enum Status: string
     public static function toArray(): array
     {
         return [
-            self::ACTIVE->value => self::ACTIVE->value,
-            self::INACTIVE->value => self::INACTIVE->value,
+            self::ACTIVE->value => trans('general.status.' . self::ACTIVE->value),
+            self::INACTIVE->value => trans('general.status.' . self::INACTIVE->value),
         ];
     }
 

@@ -12,4 +12,10 @@ return [
         'created_at' => 'Creado en',
         'updated_at' => 'Actualizado en',
     ],
+    'status' => [
+        'active' => 'Activo',
+        'inactive' => 'Inactivo',
+        'pending' => 'Pendiente',
+        'paid' => 'Pagado',
+    ],
 ];
