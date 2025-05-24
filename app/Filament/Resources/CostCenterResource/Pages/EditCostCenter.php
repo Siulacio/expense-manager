@@ -9,5 +9,6 @@ use Filament\Resources\Pages\EditRecord;
 class EditCostCenter extends EditRecord
 {
     use HasEditCommonMethods;
+
     protected static string $resource = CostCenterResource::class;
 }
