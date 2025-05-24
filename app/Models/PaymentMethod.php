@@ -23,6 +23,7 @@ class PaymentMethod extends Model
     protected $fillable = [
         self::NAME,
         self::STATUS,
+        self::USER_ID,
     ];
 
     public function id(): int
