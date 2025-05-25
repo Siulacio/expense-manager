@@ -25,4 +25,10 @@ return [
             'body' => 'El gasto ha sido eliminado exitosamente.',
         ],
     ],
+    'filters' => [
+        'status' => 'Filtrar por estado',
+        'cost_center' => 'Filtrar por centro de costo',
+        'payment_method' => 'Filtrar por método de pago',
+        'user' => 'Filtrar por usuario',
+    ],
 ];

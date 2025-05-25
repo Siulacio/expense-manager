@@ -25,4 +25,10 @@ return [
             'body' => 'The expense has been successfully deleted.',
         ],
     ],
+    'filters' => [
+        'status' => 'Filter by status',
+        'cost_center' => 'Filter by cost center',
+        'payment_method' => 'Filter by payment method',
+        'user' => 'Filter by user',
+    ],
 ];

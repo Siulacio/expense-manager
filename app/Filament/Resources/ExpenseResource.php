@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Const\HeroIcons;
 use App\Enums\ExpenseStatus;
 use App\Filament\Resources\ExpenseResource\Pages;
-use App\Models\Expense;
+use App\Models\{CostCenter, Expense, PaymentMethod, User};
 use Filament\Forms\Form;
 use Filament\{Forms, Notifications\Notification, Tables};
 use Filament\Resources\Resource;
@@ -96,6 +96,22 @@ class ExpenseResource extends Resource
                     ->sortable(),
             ])
             ->filters([
+                Tables\Filters\SelectFilter::make(Expense::STATUS)
+                    ->label(trans('expense.fields.status'))
+                    ->placeholder(trans('expense.fields.status'))
+                    ->options(ExpenseStatus::toArray()),
+                Tables\Filters\SelectFilter::make(Expense::COST_CENTER_ID)
+                    ->label(trans('expense.fields.cost_center'))
+                    ->placeholder(trans('expense.fields.cost_center'))
+                    ->options(CostCenter::query()->get()->pluck('name', 'id')->toArray()),
+                Tables\Filters\SelectFilter::make(Expense::PAYMENT_METHOD_ID)
+                    ->label(trans('expense.fields.payment_method'))
+                    ->placeholder(trans('expense.fields.payment_method'))
+                    ->options(PaymentMethod::query()->get()->pluck('name', 'id')->toArray()),
+                Tables\Filters\SelectFilter::make(Expense::USER_ID)
+                    ->label(trans('expense.fields.user'))
+                    ->placeholder(trans('expense.fields.user'))
+                    ->options(User::query()->get()->pluck('name', 'id')->toArray()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
