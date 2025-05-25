@@ -31,6 +31,7 @@ class Expense extends Model
         self::STATUS,
         self::COST_CENTER_ID,
         self::PAYMENT_METHOD_ID,
+        self::USER_ID,
     ];
 
     public function id(): int
