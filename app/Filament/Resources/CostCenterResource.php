@@ -7,6 +7,7 @@ use App\Filament\Resources\CostCenterResource\Pages;
 use App\Models\CostCenter;
 use Filament\Forms\Components\{Select, TextInput};
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -55,7 +56,20 @@ class CostCenterResource extends Resource
             ->filters([
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->button()
+                    ->color('primary'),
+                Tables\Actions\DeleteAction::make()
+                    ->button()
+                    ->color('danger')
+                    ->label(trans('general.actions.delete'))
+                    ->modalHeading(trans('general.actions.delete-item', ['item' => trans('cost_center.entity')]))
+                    ->successNotification(
+                        Notification::make()
+                            ->title(trans('cost_center.messages.deleted.title'))
+                            ->body(trans('cost_center.messages.deleted.body'))
+                            ->success()
+                    ),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
