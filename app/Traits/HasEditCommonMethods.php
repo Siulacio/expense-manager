@@ -9,6 +9,11 @@ use Filament\Notifications\Notification;
 
 trait HasEditCommonMethods
 {
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
     protected function getSavedNotification(): ?Notification
     {
         return Notification::make()
