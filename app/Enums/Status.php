@@ -24,4 +24,20 @@ enum Status: string
             self::INACTIVE->value,
         ];
     }
+
+    public static function color(string $status): string
+    {
+        return match (self::from($status)) {
+            self::ACTIVE => 'success',
+            self::INACTIVE => 'danger',
+        };
+    }
+
+    public static function translation(string $value): string
+    {
+        return match (self::from($value)) {
+            self::ACTIVE => trans('general.status.' . self::ACTIVE->value),
+            self::INACTIVE => trans('general.status.' . self::INACTIVE->value),
+        };
+    }
 }
