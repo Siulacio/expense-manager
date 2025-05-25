@@ -24,4 +24,20 @@ enum ExpenseStatus: string
             self::PENDING->value,
         ];
     }
+
+    public static function color(string $status): string
+    {
+        return match (self::from($status)) {
+            self::PAID => 'success',
+            self::PENDING => 'warning',
+        };
+    }
+
+    public static function translation(string $value): string
+    {
+        return match (self::from($value)) {
+            self::PAID => trans('general.status.' . self::PAID->value),
+            self::PENDING => trans('general.status.' . self::PENDING->value),
+        };
+    }
 }
