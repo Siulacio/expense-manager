@@ -32,7 +32,10 @@ class PaymentMethodResource extends Resource
                 Forms\Components\Select::make(PaymentMethod::USER_ID)
                     ->label(trans('payment_method.fields.user'))
                     ->relationship('user', 'name')
-                    ->required(),
+                    ->required()
+                    ->disabled()
+                    ->dehydrated()
+                    ->default(auth()->user()->getAuthIdentifier()),
             ]);
     }
 

@@ -48,6 +48,8 @@ class ExpenseResource extends Resource
                     ->label(trans('expense.fields.user'))
                     ->relationship('user', 'name')
                     ->required()
+                    ->disabled()
+                    ->dehydrated()
                     ->default(auth()->user()->getAuthIdentifier()),
             ]);
     }

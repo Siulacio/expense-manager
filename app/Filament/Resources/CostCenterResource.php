@@ -29,7 +29,10 @@ class CostCenterResource extends Resource
                 Select::make(CostCenter::USER_ID)
                     ->label(trans('cost_center.fields.user'))
                     ->relationship('user', 'name')
-                    ->required(),
+                    ->required()
+                    ->disabled()
+                    ->dehydrated()
+                    ->default(auth()->user()->getAuthIdentifier()),
             ]);
     }
 
