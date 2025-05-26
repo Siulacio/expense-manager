@@ -100,19 +100,19 @@ class ExpenseResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make(Expense::STATUS)
                     ->label(trans('expense.fields.status'))
-                    ->placeholder(trans('expense.fields.status'))
+                    ->placeholder(trans('expense.filters.status'))
                     ->options(ExpenseStatus::toArray()),
                 Tables\Filters\SelectFilter::make(Expense::COST_CENTER_ID)
                     ->label(trans('expense.fields.cost_center'))
-                    ->placeholder(trans('expense.fields.cost_center'))
+                    ->placeholder(trans('expense.filters.cost_center'))
                     ->options(CostCenter::query()->get()->pluck('name', 'id')->toArray()),
                 Tables\Filters\SelectFilter::make(Expense::PAYMENT_METHOD_ID)
                     ->label(trans('expense.fields.payment_method'))
-                    ->placeholder(trans('expense.fields.payment_method'))
+                    ->placeholder(trans('expense.filters.payment_method'))
                     ->options(PaymentMethod::query()->get()->pluck('name', 'id')->toArray()),
                 Tables\Filters\SelectFilter::make(Expense::USER_ID)
                     ->label(trans('expense.fields.user'))
-                    ->placeholder(trans('expense.fields.user'))
+                    ->placeholder(trans('expense.filters.user'))
                     ->options(User::query()->get()->pluck('name', 'id')->toArray()),
             ])
             ->actions([
