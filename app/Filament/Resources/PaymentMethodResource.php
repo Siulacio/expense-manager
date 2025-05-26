@@ -28,6 +28,7 @@ class PaymentMethodResource extends Resource
                 Forms\Components\Select::make(PaymentMethod::STATUS)
                     ->label(trans('payment_method.fields.status'))
                     ->options(Status::toArray())
+                    ->default(Status::ACTIVE->value)
                     ->required(),
                 Forms\Components\Select::make(PaymentMethod::USER_ID)
                     ->label(trans('payment_method.fields.user'))
