@@ -71,12 +71,13 @@ class PaymentMethodResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->button()
+                    ->label('')
+                    ->size('xl')
                     ->color('primary'),
                 Tables\Actions\DeleteAction::make()
-                    ->button()
+                    ->label('')
+                    ->size('xl')
                     ->color('danger')
-                    ->label(trans('general.actions.delete'))
                     ->modalHeading(trans('general.actions.delete-item', ['item' => trans('payment_method.entity')]))
                     ->successNotification(
                         Notification::make()

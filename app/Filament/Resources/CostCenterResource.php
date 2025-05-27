@@ -60,12 +60,13 @@ class CostCenterResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->button()
+                    ->label('')
+                    ->size('xl')
                     ->color('primary'),
                 Tables\Actions\DeleteAction::make()
-                    ->button()
+                    ->label('')
+                    ->size('xl')
                     ->color('danger')
-                    ->label(trans('general.actions.delete'))
                     ->modalHeading(trans('general.actions.delete-item', ['item' => trans('cost_center.entity')]))
                     ->successNotification(
                         Notification::make()

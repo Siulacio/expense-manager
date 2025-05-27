@@ -121,12 +121,13 @@ class ExpenseResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->button()
+                    ->label('')
+                    ->size('xl')
                     ->color('primary'),
                 Tables\Actions\DeleteAction::make()
-                    ->button()
+                    ->label('')
+                    ->size('xl')
                     ->color('danger')
-                    ->label(trans('general.actions.delete'))
                     ->modalHeading(trans('general.actions.delete-item', ['item' => trans('expense.entity')]))
                     ->successNotification(
                         Notification::make()
