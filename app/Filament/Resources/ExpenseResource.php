@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Components\{MonthFilter, PeriodFilter};
+use App\Components\{DateRangeFilter, MonthFilter, PeriodFilter};
 use App\Const\HeroIcons;
 use App\Enums\{ExpenseStatus};
 use App\Filament\Resources\ExpenseResource\Pages;
@@ -11,7 +11,6 @@ use Filament\Forms\Form;
 use Filament\{Forms, Notifications\Notification, Tables, Tables\Filters\SelectFilter};
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 
 class ExpenseResource extends Resource
 {
@@ -118,12 +117,7 @@ class ExpenseResource extends Resource
                     ->options(User::query()->get()->pluck('name', 'id')->toArray()),
                 MonthFilter::make('month'),
                 PeriodFilter::make('period'),
-                SelectFilter::make('date_range')
-                    ->form([
-                        Forms\Components\DatePicker::make('from')->label(trans('expense.fields.from')),
-                        Forms\Components\DatePicker::make('until')->label(trans('expense.fields.until')),
-                    ])
-                    ->query(fn (Builder $query, array $data) => $query->filterByDateRange($data)),
+                DateRangeFilter::make('date_range'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
