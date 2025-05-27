@@ -3,13 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Const\HeroIcons;
-use App\Enums\ExpenseStatus;
+use App\Enums\{ExpenseStatus, Months};
 use App\Filament\Resources\ExpenseResource\Pages;
 use App\Models\{CostCenter, Expense, PaymentMethod, User};
 use Filament\Forms\Form;
 use Filament\{Forms, Notifications\Notification, Tables};
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ExpenseResource extends Resource
 {
@@ -114,6 +115,11 @@ class ExpenseResource extends Resource
                     ->label(trans('expense.fields.user'))
                     ->placeholder(trans('expense.filters.user'))
                     ->options(User::query()->get()->pluck('name', 'id')->toArray()),
+                Tables\Filters\SelectFilter::make('month')
+                    ->label(trans('expense.fields.month'))
+                    ->placeholder(trans('expense.filters.month'))
+                    ->options(Months::forFilter())
+                    ->query(fn (Builder $query, array $data) => $query->filterByMonth($data)),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
