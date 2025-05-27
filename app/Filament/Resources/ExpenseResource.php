@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Components\MonthFilter;
+use App\Components\{MonthFilter, PeriodFilter};
 use App\Const\HeroIcons;
 use App\Enums\{ExpenseStatus};
 use App\Filament\Resources\ExpenseResource\Pages;
@@ -117,11 +117,7 @@ class ExpenseResource extends Resource
                     ->placeholder(trans('expense.filters.user'))
                     ->options(User::query()->get()->pluck('name', 'id')->toArray()),
                 MonthFilter::make('month'),
-                SelectFilter::make('period')
-                    ->label(trans('expense.fields.period'))
-                    ->placeholder(trans('expense.filters.period'))
-                    ->options(self::forPeriodPreset())
-                    ->query(fn (Builder $query, array $data) => $query->filterByPeriodPreset($data)),
+                PeriodFilter::make('period'),
                 SelectFilter::make('date_range')
                     ->form([
                         Forms\Components\DatePicker::make('from')->label(trans('expense.fields.from')),
@@ -170,16 +166,5 @@ class ExpenseResource extends Resource
     public static function getModelLabel(): string
     {
         return trans('expense.entity');
-    }
-
-    public static function forPeriodPreset(): array
-    {
-        return [
-            'current_month' => trans('general.periods.current_month'),
-            'last_month' => trans('general.periods.last_month'),
-            'last_3_months' => trans('general.periods.last_3_months'),
-            'last_6_months' => trans('general.periods.last_6_months'),
-            'current_year' => trans('general.periods.current_year'),
-        ];
     }
 }
