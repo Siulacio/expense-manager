@@ -13,6 +13,7 @@ return [
         'month' => 'Month',
         'from' => 'From',
         'until' => 'Until',
+        'period' => 'Period',
     ],
     'messages' => [
         'created' => [
@@ -34,5 +35,6 @@ return [
         'payment_method' => 'Filter by payment method',
         'user' => 'Filter by user',
         'month' => 'Filter by month',
+        'period' => 'Filter by period',
     ],
 ];

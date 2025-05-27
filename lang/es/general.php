@@ -32,4 +32,11 @@ return [
         App\Enums\Months::NOVEMBER->value => 'Noviembre',
         App\Enums\Months::DECEMBER->value => 'Diciembre',
     ],
+    'periods' => [
+        'current_month' => 'Este mes',
+        'last_month' => 'Mes pasado',
+        'last_3_months' => 'Últimos 3 meses',
+        'last_6_months' => 'Últimos 6 meses',
+        'current_year' => 'Este año',
+    ],
 ];

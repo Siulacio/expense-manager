@@ -120,6 +120,11 @@ class ExpenseResource extends Resource
                     ->placeholder(trans('expense.filters.month'))
                     ->options(Months::forFilter())
                     ->query(fn (Builder $query, array $data) => $query->filterByMonth($data)),
+                SelectFilter::make('period')
+                    ->label(trans('expense.fields.period'))
+                    ->placeholder(trans('expense.filters.period'))
+                    ->options(self::forPeriodPreset())
+                    ->query(fn (Builder $query, array $data) => $query->filterByPeriodPreset($data)),
                 SelectFilter::make('date_range')
                     ->form([
                         Forms\Components\DatePicker::make('from')->label(trans('expense.fields.from')),
@@ -168,5 +173,16 @@ class ExpenseResource extends Resource
     public static function getModelLabel(): string
     {
         return trans('expense.entity');
+    }
+
+    public static function forPeriodPreset(): array
+    {
+        return [
+            'current_month' => trans('general.periods.current_month'),
+            'last_month' => trans('general.periods.last_month'),
+            'last_3_months' => trans('general.periods.last_3_months'),
+            'last_6_months' => trans('general.periods.last_6_months'),
+            'current_year' => trans('general.periods.current_year'),
+        ];
     }
 }
