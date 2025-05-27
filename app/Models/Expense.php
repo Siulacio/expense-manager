@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\{Builder, Model};
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Expense extends Model
@@ -97,5 +97,15 @@ class Expense extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public static function scopeFilterByMonth($query, array $data): Builder
+    {
+        if (!$data['value']) {
+            return $query;
+        }
+
+        return $query->whereMonth(self::DATE, $data['value'])
+            ->whereYear(self::DATE, date('Y'));
     }
 }
