@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources;
 
+use App\Components\MonthFilter;
 use App\Const\HeroIcons;
-use App\Enums\{ExpenseStatus, Months};
+use App\Enums\{ExpenseStatus};
 use App\Filament\Resources\ExpenseResource\Pages;
 use App\Models\{CostCenter, Expense, PaymentMethod, User};
 use Filament\Forms\Form;
@@ -115,11 +116,7 @@ class ExpenseResource extends Resource
                     ->label(trans('expense.fields.user'))
                     ->placeholder(trans('expense.filters.user'))
                     ->options(User::query()->get()->pluck('name', 'id')->toArray()),
-                SelectFilter::make('month')
-                    ->label(trans('expense.fields.month'))
-                    ->placeholder(trans('expense.filters.month'))
-                    ->options(Months::forFilter())
-                    ->query(fn (Builder $query, array $data) => $query->filterByMonth($data)),
+                MonthFilter::make('month'),
                 SelectFilter::make('period')
                     ->label(trans('expense.fields.period'))
                     ->placeholder(trans('expense.filters.period'))
