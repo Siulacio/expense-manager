@@ -10,6 +10,7 @@ return [
         'cost_center' => 'Centro de costo',
         'payment_method' => 'Método de pago',
         'user' => 'Usuario',
+        'month' => 'Mes',
     ],
     'messages' => [
         'created' => [
@@ -30,5 +31,6 @@ return [
         'cost_center' => 'Filtrar por centro de costo',
         'payment_method' => 'Filtrar por método de pago',
         'user' => 'Filtrar por usuario',
+        'month' => 'Filtrar por mes',
     ],
 ];
