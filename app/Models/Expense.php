@@ -108,4 +108,17 @@ class Expense extends Model
         return $query->whereMonth(self::DATE, $data['value'])
             ->whereYear(self::DATE, date('Y'));
     }
+
+    public static function scopeFilterByDateRange($query, array $data): Builder
+    {
+        return $query
+            ->when(
+                $data['from'],
+                fn (Builder $query, $date): Builder => $query->whereDate(self::DATE, '>=', $date),
+            )
+            ->when(
+                $data['until'],
+                fn (Builder $query, $date): Builder => $query->whereDate(self::DATE, '<=', $date),
+            );
+    }
 }

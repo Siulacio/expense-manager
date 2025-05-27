@@ -11,6 +11,8 @@ return [
         'payment_method' => 'Método de pago',
         'user' => 'Usuario',
         'month' => 'Mes',
+        'from' => 'Desde',
+        'until' => 'Hasta',
     ],
     'messages' => [
         'created' => [
