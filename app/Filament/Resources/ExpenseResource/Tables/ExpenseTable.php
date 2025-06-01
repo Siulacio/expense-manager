@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\ExpenseResource\Tables;
 
 use App\Components\{DateRangeFilter, MonthFilter, PeriodFilter};
@@ -42,7 +44,7 @@ class ExpenseTable
                             ->using(function ($query) {
                                 return $query->where(Expense::STATUS, '=', ExpenseStatus::PAID->value)->sum(Expense::AMOUNT);
                             })
-                            ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.'))
+                            ->formatStateUsing(fn (float $state) => number_format($state, 0, ',', '.'))
                     ),
                 TextColumn::make(Expense::STATUS)
                     ->label(trans('expense.fields.status'))
