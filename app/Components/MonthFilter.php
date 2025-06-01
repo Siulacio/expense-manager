@@ -15,6 +15,7 @@ class MonthFilter extends SelectFilter
         $this->label(trans('expense.fields.month'));
         $this->placeholder(trans('expense.filters.month'));
         $this->options(Months::forFilter());
+        $this->default(now()->monthOfYear());
         $this->query(fn (Builder $query, array $data) => $query->filterByMonth($data));
     }
 }
