@@ -37,4 +37,8 @@ return [
         'month' => 'Filter by month',
         'period' => 'Filter by period',
     ],
+    'summarize' => [
+        'total_pending' => 'Total pending',
+        'total_paid' => 'Total paid',
+    ],
 ];

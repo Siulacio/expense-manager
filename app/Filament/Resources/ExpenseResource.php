@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Components\{DateRangeFilter, MonthFilter, PeriodFilter};
 use App\Const\HeroIcons;
-use App\Enums\{ExpenseStatus};
+use App\Enums\ExpenseStatus;
 use App\Filament\Resources\ExpenseResource\Pages;
 use App\Models\{CostCenter, Expense, PaymentMethod, User};
 use Filament\Forms\Form;
@@ -65,11 +65,26 @@ class ExpenseResource extends Resource
                 Tables\Columns\TextColumn::make(Expense::AMOUNT)
                     ->label(trans('expense.fields.amount'))
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->summarize([
+                        Tables\Columns\Summarizers\Sum::make()
+                            ->label(trans('expense.summarize.total_pending'))
+                            ->query(function ($query) {
+                                return $query->where(Expense::STATUS, '=', ExpenseStatus::PENDING->value);
+                            }),
+                    ]),
                 Tables\Columns\TextColumn::make(Expense::DATE)
                     ->label(trans('expense.fields.date'))
                     ->date()
-                    ->sortable(),
+                    ->sortable()
+                    ->summarize(
+                        Tables\Columns\Summarizers\Summarizer::make()
+                            ->label(trans('expense.summarize.total_paid'))
+                            ->using(function ($query) {
+                                return $query->where(Expense::STATUS, '=', ExpenseStatus::PAID->value)->sum(Expense::AMOUNT);
+                            })
+                            ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.'))
+                    ),
                 Tables\Columns\TextColumn::make(Expense::STATUS)
                     ->label(trans('expense.fields.status'))
                     ->badge()
