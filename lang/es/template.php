@@ -4,6 +4,7 @@ return [
     'entity' => 'Plantilla',
     'fields' => [
         'name' => 'Nombre',
+        'user' => 'Usuario',
     ],
     'messages' => [
         'created' => [

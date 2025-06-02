@@ -4,6 +4,7 @@ return [
     'entity' => 'Template',
     'fields' => [
         'name' => 'Name',
+        'user' => 'User',
     ],
     'messages' => [
         'created' => [
