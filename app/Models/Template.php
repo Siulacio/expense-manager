@@ -20,6 +20,11 @@ class Template extends Model
         self::USER_ID,
     ];
 
+    public function id(): int
+    {
+        return $this->{self::ID};
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
