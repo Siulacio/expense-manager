@@ -6,7 +6,7 @@ namespace App\Filament\Resources\ExpenseResource\Tables;
 
 use App\Components\{DateRangeFilter, MonthFilter, PeriodFilter};
 use App\Enums\ExpenseStatus;
-use App\Models\{CostCenter, Expense, PaymentMethod, User};
+use App\Models\Expense;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\{BulkActionGroup, DeleteAction, DeleteBulkAction, EditAction};
 use Filament\Tables\Columns\Summarizers\{Sum, Summarizer};
@@ -82,15 +82,15 @@ class ExpenseTable
                 SelectFilter::make(Expense::COST_CENTER_ID)
                     ->label(trans('expense.fields.cost_center'))
                     ->placeholder(trans('expense.filters.cost_center'))
-                    ->options(CostCenter::query()->get()->pluck('name', 'id')->toArray()),
+                    ->relationship('costCenter', 'name'),
                 SelectFilter::make(Expense::PAYMENT_METHOD_ID)
                     ->label(trans('expense.fields.payment_method'))
                     ->placeholder(trans('expense.filters.payment_method'))
-                    ->options(PaymentMethod::query()->get()->pluck('name', 'id')->toArray()),
+                    ->relationship('paymentMethod', 'name'),
                 SelectFilter::make(Expense::USER_ID)
                     ->label(trans('expense.fields.user'))
                     ->placeholder(trans('expense.filters.user'))
-                    ->options(User::query()->get()->pluck('name', 'id')->toArray()),
+                    ->relationship('user', 'name'),
                 MonthFilter::make('month'),
                 PeriodFilter::make('period'),
                 DateRangeFilter::make('date_range'),
