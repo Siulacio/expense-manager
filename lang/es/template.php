@@ -19,5 +19,9 @@ return [
             'title' => 'Plantilla eliminada',
             'body' => 'La plantilla ha sido eliminada exitosamente.',
         ],
+        'copied' => [
+            'title' => 'Plantilla copiada',
+            'body' => 'La plantilla ha sido copiada exitosamente.',
+        ],
     ],
 ];

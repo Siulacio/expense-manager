@@ -26,6 +26,36 @@ class TemplateItem extends Model
         self::PAYMENT_METHOD_ID,
     ];
 
+    public function id(): int
+    {
+        return $this->{self::ID};
+    }
+
+    public function name(): string
+    {
+        return $this->{self::NAME};
+    }
+
+    public function amount(): float
+    {
+        return $this->{self::AMOUNT};
+    }
+
+    public function templateId()
+    {
+        return $this->{self::TEMPLATE_ID};
+    }
+
+    public function costCenterId(): int
+    {
+        return $this->{self::COST_CENTER_ID};
+    }
+
+    public function paymentMethodId(): int
+    {
+        return $this->{self::PAYMENT_METHOD_ID};
+    }
+
     public function costCenter(): BelongsTo
     {
         return $this->belongsTo(CostCenter::class);
@@ -34,5 +64,10 @@ class TemplateItem extends Model
     public function paymentMethod(): BelongsTo
     {
         return $this->belongsTo(PaymentMethod::class);
+    }
+
+    public function template(): BelongsTo
+    {
+        return $this->belongsTo(Template::class);
     }
 }

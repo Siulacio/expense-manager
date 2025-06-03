@@ -19,5 +19,9 @@ return [
             'title' => 'Template deleted',
             'body' => 'The template has been successfully deleted.',
         ],
+        'copied' => [
+            'title' => 'Template copied',
+            'body' => 'The template has been successfully copied.',
+        ],
     ],
 ];
