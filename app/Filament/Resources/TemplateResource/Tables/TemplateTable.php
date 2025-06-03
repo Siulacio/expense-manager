@@ -6,7 +6,7 @@ namespace App\Filament\Resources\TemplateResource\Tables;
 
 use App\Const\HeroIcons;
 use App\Filament\Resources\TemplateResource\Actions\CopyTemplateAction;
-use Filament\Forms\Components\{DatePicker, Section};
+use App\Filament\Resources\TemplateResource\Forms\CopyForm;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\{Action, BulkActionGroup, DeleteAction, DeleteBulkAction, EditAction};
 use Filament\Tables\Columns\TextColumn;
@@ -33,17 +33,10 @@ class TemplateTable
                     ->label('')
                     ->size('xl')
                     ->icon(HeroIcons::DOCUMENT_DUPLICATE)
-                    ->modalHeading('Copiar plantilla')
-                    ->modalDescription('¿Estás seguro de que deseas copiar esta plantilla?')
-                    ->form([
-                        Section::make()->schema([
-                            DatePicker::make('date')
-                                ->label(trans('expense.fields.date'))
-                                ->required()
-                                ->default(now()->format('Y-m-d')),
-                        ])->columns(),
-                    ])
-                    ->modalSubmitActionLabel('Copiar')
+                    ->modalHeading(trans('template.modal.title'))
+                    ->modalDescription(trans('template.modal.description'))
+                    ->form(CopyForm::make())
+                    ->modalSubmitActionLabel(trans('general.actions.copy'))
                     ->action(function (array $data, $record) {
                         CopyTemplateAction::execute($data, $record);
                     }),

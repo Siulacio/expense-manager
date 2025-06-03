@@ -6,6 +6,10 @@ return [
         'name' => 'Nombre',
         'user' => 'Usuario',
     ],
+    'modal' => [
+        'title' => 'Copiar plantilla',
+        'description' => '¿Estás seguro de que deseas copiar esta plantilla?',
+    ],
     'messages' => [
         'created' => [
             'title' => 'Plantilla creada',
