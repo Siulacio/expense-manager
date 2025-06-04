@@ -10,6 +10,7 @@ use App\Filament\Resources\TemplateResource\Forms\CopyForm;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\{Action, BulkActionGroup, DeleteAction, DeleteBulkAction, EditAction};
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
 
 class TemplateTable
@@ -17,9 +18,24 @@ class TemplateTable
     public static function make(Table $table): Table
     {
         return $table
+            ->groups([
+                Group::make('name')->collapsible(),
+            ])
             ->columns([
                 TextColumn::make('name')
                     ->label(trans('template.fields.name'))
+                    ->searchable(),
+                TextColumn::make('item_name')
+                    ->label(trans('template.fields.name'))
+                    ->searchable(),
+                TextColumn::make('item_amount')
+                    ->label(trans('expense.fields.amount'))
+                    ->searchable(),
+                TextColumn::make('item_cost_center_name')
+                    ->label(trans('expense.fields.cost_center'))
+                    ->searchable(),
+                TextColumn::make('item_payment_method_name')
+                    ->label(trans('expense.fields.payment_method'))
                     ->searchable(),
             ])
             ->filters([
