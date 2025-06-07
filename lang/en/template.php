@@ -7,8 +7,13 @@ return [
         'user' => 'User',
     ],
     'modal' => [
-        'title' => 'Copy Template',
-        'description' => 'Are you sure you want to copy this template?',
+        'copy' => [
+            'title' => 'Copy Template',
+            'description' => 'Are you sure you want to copy this template?',
+        ],
+        'details' => [
+            'title' => 'Associated template items',
+        ],
     ],
     'messages' => [
         'created' => [

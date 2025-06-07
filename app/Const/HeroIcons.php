@@ -12,4 +12,5 @@ class HeroIcons
     public const PRESENTATION_CHART_LINE = 'heroicon-o-presentation-chart-line';
     public const PUZZLE_PIECE = 'heroicon-o-puzzle-piece';
     public const DOCUMENT_DUPLICATE = 'heroicon-o-document-duplicate';
+    public const EYE = 'heroicon-o-eye';
 }

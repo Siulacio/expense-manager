@@ -7,6 +7,7 @@ namespace App\Filament\Resources\TemplateResource\Tables;
 use App\Const\HeroIcons;
 use App\Filament\Resources\TemplateResource\Actions\CopyTemplateAction;
 use App\Filament\Resources\TemplateResource\Forms\CopyForm;
+use App\Models\Template;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\{Action, BulkActionGroup, DeleteAction, DeleteBulkAction, EditAction};
 use Filament\Tables\Columns\TextColumn;
@@ -25,6 +26,16 @@ class TemplateTable
             ->filters([
             ])
             ->actions([
+                Action::make('view')
+                    ->label('')
+                    ->size('xl')
+                    ->icon(HeroIcons::EYE)
+                    ->modalHeading(trans('template.modal.details.title'))
+                    ->modalContent(function (Template $record) {
+                        return view('filament.resources.template.items-list', [
+                            'items' => $record->items,
+                        ]);
+                    }),
                 EditAction::make()
                     ->label('')
                     ->size('xl')
@@ -33,8 +44,8 @@ class TemplateTable
                     ->label('')
                     ->size('xl')
                     ->icon(HeroIcons::DOCUMENT_DUPLICATE)
-                    ->modalHeading(trans('template.modal.title'))
-                    ->modalDescription(trans('template.modal.description'))
+                    ->modalHeading(trans('template.modal.copy.title'))
+                    ->modalDescription(trans('template.modal.copy.description'))
                     ->form(CopyForm::make())
                     ->modalSubmitActionLabel(trans('general.actions.copy'))
                     ->action(function (array $data, $record) {

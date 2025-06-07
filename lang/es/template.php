@@ -7,8 +7,13 @@ return [
         'user' => 'Usuario',
     ],
     'modal' => [
-        'title' => 'Copiar plantilla',
-        'description' => '¿Estás seguro de que deseas copiar esta plantilla?',
+        'copy' => [
+            'title' => 'Copiar plantilla',
+            'description' => '¿Estás seguro de que deseas copiar esta plantilla?',
+        ],
+        'details' => [
+            'title' => 'Detalles asociados a la plantilla',
+        ],
     ],
     'messages' => [
         'created' => [
