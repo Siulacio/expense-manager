@@ -31,6 +31,8 @@ class TemplateTable
                     ->size('xl')
                     ->icon(HeroIcons::EYE)
                     ->modalHeading(trans('template.modal.details.title'))
+                    ->modalSubmitAction(false)
+                    ->modalCancelActionLabel(trans('general.actions.close'))
                     ->modalContent(function (Template $record) {
                         return view('filament.resources.template.items-list', [
                             'items' => $record->items,

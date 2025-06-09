@@ -8,6 +8,7 @@ return [
         'delete-item' => 'Eliminar :item',
         'cancel' => 'Cancelar',
         'copy' => 'Copiar',
+        'close' => 'Cerrar',
     ],
     'timestamps' => [
         'created_at' => 'Creado en',
