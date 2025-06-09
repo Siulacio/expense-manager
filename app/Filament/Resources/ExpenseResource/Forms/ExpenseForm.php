@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\ExpenseResource\Forms;
 
+use App\Components\AmountTextInput;
 use App\Enums\ExpenseStatus;
 use App\Models\Expense;
 use Filament\Forms\Components\{DatePicker, Select, TextInput};
@@ -19,10 +20,7 @@ class ExpenseForm
                     ->label(trans('expense.fields.name'))
                     ->required()
                     ->maxLength(100),
-                TextInput::make(Expense::AMOUNT)
-                    ->label(trans('expense.fields.amount'))
-                    ->required()
-                    ->numeric(),
+                AmountTextInput::make(Expense::AMOUNT),
                 DatePicker::make(Expense::DATE)
                     ->label(trans('expense.fields.date'))
                     ->default(now()->format('Y-m-d')),
