@@ -13,4 +13,5 @@ class HeroIcons
     public const PUZZLE_PIECE = 'heroicon-o-puzzle-piece';
     public const DOCUMENT_DUPLICATE = 'heroicon-o-document-duplicate';
     public const EYE = 'heroicon-o-eye';
+    public const ARROWS_RIGHT_LEFT = 'heroicon-o-arrows-right-left';
 }

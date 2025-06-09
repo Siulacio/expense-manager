@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Filament\Resources\ExpenseResource\Tables;
 
 use App\Components\{DateRangeFilter, MonthFilter, PeriodFilter};
+use App\Const\HeroIcons;
 use App\Enums\ExpenseStatus;
+use App\Filament\Resources\ExpenseResource\Actions\ToggleStateAction;
 use App\Models\Expense;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\{BulkActionGroup, DeleteAction, DeleteBulkAction, EditAction};
+use Filament\Tables\Actions\{Action, BulkActionGroup, DeleteAction, DeleteBulkAction, EditAction};
 use Filament\Tables\Columns\Summarizers\{Sum, Summarizer};
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -96,6 +98,11 @@ class ExpenseTable
                 DateRangeFilter::make('date_range'),
             ])
             ->actions([
+                Action::make('toggle')
+                    ->label('')
+                    ->size('xl')
+                    ->icon(HeroIcons::ARROWS_RIGHT_LEFT)
+                    ->action(fn ($record) => ToggleStateAction::execute($record)),
                 EditAction::make()
                     ->label('')
                     ->size('xl')

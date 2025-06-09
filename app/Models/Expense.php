@@ -57,9 +57,14 @@ class Expense extends Model
         return $this->{self::DATE};
     }
 
-    public function status(): int
+    public function status(): string
     {
         return $this->{self::STATUS};
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->{self::STATUS} = $status;
     }
 
     public function costCenterId(): int
