@@ -123,6 +123,7 @@ class ExpenseTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultPaginationPageOption(25);
     }
 }
