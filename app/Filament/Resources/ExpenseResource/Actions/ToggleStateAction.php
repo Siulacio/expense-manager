@@ -20,8 +20,8 @@ class ToggleStateAction
         $record->save();
 
         Notification::make()
-            ->title(trans('template.messages.copied.title'))
-            ->body(trans('template.messages.copied.body'))
+            ->title(trans('expense.messages.toggle.title'))
+            ->body(trans('expense.messages.toggle.body'))
             ->success()
             ->send();
     }
