@@ -14,6 +14,8 @@ return [
         'from' => 'From',
         'until' => 'Until',
         'period' => 'Period',
+        'start_date' => 'Start Date',
+        'end_date' => 'End Date',
     ],
     'messages' => [
         'created' => [
@@ -27,6 +29,15 @@ return [
         'deleted' => [
             'title' => 'Expense deleted',
             'body' => 'The expense has been successfully deleted.',
+        ],
+        'toggle' => [
+            'title' => 'Status changed',
+            'body' => 'The status of the expense has been successfully changed.',
+        ],
+        'export' => [
+            'title' => 'Export Expenses',
+            'success_body' => 'Expenses have been successfully exported.',
+            'error_body' => 'No expenses found with these criteria.',
         ],
     ],
     'filters' => [

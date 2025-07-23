@@ -14,6 +14,8 @@ return [
         'from' => 'Desde',
         'until' => 'Hasta',
         'period' => 'Período',
+        'start_date' => 'Fecha de inicio',
+        'end_date' => 'Fecha final',
     ],
     'messages' => [
         'created' => [
@@ -27,6 +29,15 @@ return [
         'deleted' => [
             'title' => 'Gasto eliminado',
             'body' => 'El gasto ha sido eliminado exitosamente.',
+        ],
+        'toggle' => [
+            'title' => 'Estado cambiado',
+            'body' => 'El estado del gasto ha sido cambiado exitosamente.',
+        ],
+        'export' => [
+            'title' => 'Exportar gastos',
+            'success_body' => 'Los gastos han sido exportados exitosamente.',
+            'error_body' => 'No se han encontrado gastos con estos criterios.',
         ],
     ],
     'filters' => [

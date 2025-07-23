@@ -9,6 +9,7 @@ return [
         'cancel' => 'Cancelar',
         'copy' => 'Copiar',
         'close' => 'Cerrar',
+        'export' => 'Exportar',
     ],
     'timestamps' => [
         'created_at' => 'Creado en',
