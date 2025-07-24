@@ -68,5 +68,9 @@ return [
         'total_of_the_period' => 'Total for the period',
         'copyright' => '© :year :app_name. Smart control of your finances.',
         'footer_message' => 'This summary is automatically generated based on your recorded transactions.',
+        'messages' => [
+            'success' => 'The monthly expense summary has been successfully sent.',
+            'error' => 'No expenses were found with the selected parameters.',
+        ],
     ],
 ];

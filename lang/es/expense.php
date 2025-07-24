@@ -68,5 +68,9 @@ return [
         'total_of_the_period' => 'Total del período',
         'copyright' => '© :year :app_name. Control inteligente de tus finanzas.',
         'footer_message' => 'Este resumen se genera automáticamente basado en tus transacciones registradas.',
+        'messages' => [
+            'success' => 'El resumen de gastos ha sido enviado exitosamente.',
+            'error' => 'No se encontraron gastos con los parametros seleccionados.',
+        ],
     ],
 ];
