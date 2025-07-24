@@ -17,6 +17,7 @@ return [
         'start_date' => 'Fecha de inicio',
         'end_date' => 'Fecha final',
     ],
+    'report' => 'Informe de gastos :date',
     'messages' => [
         'created' => [
             'title' => 'Gasto creado',
@@ -51,5 +52,21 @@ return [
     'summarize' => [
         'total_pending' => 'Total por pagar',
         'total_paid' => 'Total pagado',
+    ],
+    'mail' => [
+        'title' => 'Resumen de gastos mensual',
+        'description' => 'Tu resumen mensual de gastos',
+        'expense_summary' => 'Resumen de gastos',
+        'total_spent' => 'Total gastado',
+        'expenses_count' => 'Número de gastos',
+        'average_per_expense' => 'Promedio por gasto',
+        'expense_details' => 'Detalle de gastos',
+        'expense_details_description' => 'Aquí tienes el desglose completo de tus gastos del mes.',
+        'expense_name' => 'Nombre del gasto',
+        'amount' => 'Monto',
+        'date' => 'Fecha',
+        'total_of_the_period' => 'Total del período',
+        'copyright' => '© :year :app_name. Control inteligente de tus finanzas.',
+        'footer_message' => 'Este resumen se genera automáticamente basado en tus transacciones registradas.',
     ],
 ];

@@ -17,6 +17,7 @@ return [
         'start_date' => 'Start Date',
         'end_date' => 'End Date',
     ],
+    'report' => 'Expense report :date',
     'messages' => [
         'created' => [
             'title' => 'Expense created',
@@ -51,5 +52,21 @@ return [
     'summarize' => [
         'total_pending' => 'Total pending',
         'total_paid' => 'Total paid',
+    ],
+    'mail' => [
+        'title' => 'Monthly expense summary',
+        'description' => 'Your monthly expense summary',
+        'expense_summary' => 'Expense Summary',
+        'total_spent' => 'Total spent',
+        'expenses_count' => 'Number of expenses',
+        'average_per_expense' => 'Average per expense',
+        'expense_details' => 'Expense details',
+        'expense_details_description' => 'Here is the complete breakdown of your expenses for the month.',
+        'expense_name' => 'Expense name',
+        'amount' => 'Amount',
+        'date' => 'Date',
+        'total_of_the_period' => 'Total for the period',
+        'copyright' => '© :year :app_name. Smart control of your finances.',
+        'footer_message' => 'This summary is automatically generated based on your recorded transactions.',
     ],
 ];
