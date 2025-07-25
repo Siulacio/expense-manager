@@ -29,9 +29,7 @@ class ListExpenses extends ListRecords
                             SendExportMailPipe::class,
                             NotifyPipe::class,
                         ])
-                        ->then(function ($data) {
-                            return null;
-                        });
+                        ->then(fn () => null);
                 }),
         ];
     }
